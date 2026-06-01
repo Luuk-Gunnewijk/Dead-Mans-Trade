@@ -4,6 +4,7 @@ public class BasicMovementNB : MonoBehaviour
 {
     [Header("MoveSpeed")]
     [SerializeField] private float acceleration;
+    [SerializeField] private float backwardsSpeed;
     [SerializeField] private float decelerationSpeed;
 
     [Header("RotationSpeed")]
@@ -36,10 +37,14 @@ public class BasicMovementNB : MonoBehaviour
         {
             _rigidBody2D.AddForce(transform.up * acceleration);
         }
-        else
+        else if (Input.GetKey(KeyCode.DownArrow))
         {
-            _rigidBody2D.linearVelocity = Vector2.Lerp(_rigidBody2D.linearVelocity, Vector2.zero, decelerationSpeed * Time.fixedDeltaTime);
+            _rigidBody2D.AddForce(transform.up * -backwardsSpeed);
         }
+        else
+    {
+        _rigidBody2D.linearVelocity = Vector2.Lerp(_rigidBody2D.linearVelocity, Vector2.zero, decelerationSpeed * Time.fixedDeltaTime);
+    }
     }
 
     private void RotateInputNB()
