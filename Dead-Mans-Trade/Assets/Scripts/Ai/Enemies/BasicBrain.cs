@@ -7,7 +7,7 @@ public class BasicBrain : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 2f, Vector2.zero, 10f);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 5f, Vector2.zero, 10f);
     }
 
     private void OnDrawGizmos()
@@ -17,8 +17,8 @@ public class BasicBrain : MonoBehaviour
         Vector3 start = transform.position;
         Vector3 end = transform.position + Vector3.zero * 10f;
 
-        Gizmos.DrawWireSphere(start, 2f);
-        Gizmos.DrawWireSphere(end, 2f);
+        Gizmos.DrawWireSphere(start, 5f);
+        Gizmos.DrawWireSphere(end, 5f);
         Gizmos.DrawLine(start, end);
     }
 }
