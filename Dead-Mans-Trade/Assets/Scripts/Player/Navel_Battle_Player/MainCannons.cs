@@ -5,6 +5,10 @@ public class MainCannons : MonoBehaviour
     [Header("Cannon")]
     [SerializeField] private GameObject cannon;
 
+    [Header("FirePoints")]
+    [SerializeField] private Transform firePointR;
+    [SerializeField] private Transform firePointL;
+
     void Start()
     {
         
@@ -16,10 +20,14 @@ public class MainCannons : MonoBehaviour
     }
 
     private void ShootCannon()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
+    {  
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            Instantiate(cannon, transform.position, Quaternion.identity);
+            Instantiate(cannon, firePointL.position, firePointL.rotation);
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            Instantiate(cannon, firePointR.position, firePointR.rotation);
         }
     }
 }
