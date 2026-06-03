@@ -194,6 +194,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &377557993 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+  m_PrefabInstance: {fileID: 1820215155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &377557994 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 7049648933790653757, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+  m_PrefabInstance: {fileID: 1820215155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +411,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000029d783d1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -974,6 +984,7 @@ Transform:
   m_Children:
   - {fileID: 1227452732}
   - {fileID: 1903088043}
+  - {fileID: 1868953747}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1431744820
@@ -1003,9 +1014,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b0e447ecf3ef842a3d8c6d28a546ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashSpeed: 200
-  decelerationSpeed: 250
+  DashSpeed: 8
+  decelerationSpeed: 5
   DashCooldownTime: 2
+  dashTrail: {fileID: 377557994}
 --- !u!1 &1572606533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1209,99 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1820215155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1868953747}
+    m_Modifications:
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 308367633344505723, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484262143716274974, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_Name
+      value: DashTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049648933790653757, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+      propertyPath: m_Time
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8776fdc61164c8140abeb2001321072c, type: 3}
+--- !u!1 &1868953746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1868953747}
+  m_Layer: 0
+  m_Name: TrailRender Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1868953747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868953746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 377557993}
+  m_Father: {fileID: 1431744819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903088042
 GameObject:
   m_ObjectHideFlags: 0

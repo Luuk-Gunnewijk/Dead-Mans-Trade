@@ -40,6 +40,7 @@ public class Dash : MonoBehaviour
     {
         _canDash = false;
         dashTrail.emitting = true;
+        _myRigidBody2D.linearVelocity = Vector2.zero;
         _myRigidBody2D.AddForce(transform.up * DashSpeed, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         dashTrail.emitting = false;
