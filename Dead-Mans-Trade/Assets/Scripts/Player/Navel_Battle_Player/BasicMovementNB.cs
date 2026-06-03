@@ -42,9 +42,9 @@ public class BasicMovementNB : MonoBehaviour
             _rigidBody2D.AddForce(transform.up * -backwardsSpeed);
         }
         else
-    {
-        _rigidBody2D.linearVelocity = Vector2.Lerp(_rigidBody2D.linearVelocity, Vector2.zero, decelerationSpeed * Time.fixedDeltaTime);
-    }
+        {
+            _rigidBody2D.linearVelocity = Vector2.Lerp(_rigidBody2D.linearVelocity, Vector2.zero, decelerationSpeed * Time.fixedDeltaTime);
+        }
     }
 
     private void RotateInputNB()

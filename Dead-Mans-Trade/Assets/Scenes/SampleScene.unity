@@ -467,7 +467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &832330345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -816,13 +816,14 @@ GameObject:
   - component: {fileID: 1431744816}
   - component: {fileID: 1431744815}
   - component: {fileID: 1431744820}
+  - component: {fileID: 1431744821}
   m_Layer: 0
   m_Name: Navel_Battle_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1431744815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,6 +991,21 @@ MonoBehaviour:
   cannon: {fileID: 5382808724595520759, guid: d376c29242a4b494d826faa89dd5c4c4, type: 3}
   firePointR: {fileID: 1227452732}
   firePointL: {fileID: 1903088043}
+--- !u!114 &1431744821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431744814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b0e447ecf3ef842a3d8c6d28a546ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashSpeed: 200
+  decelerationSpeed: 250
+  DashCooldownTime: 2
 --- !u!1 &1572606533
 GameObject:
   m_ObjectHideFlags: 0
