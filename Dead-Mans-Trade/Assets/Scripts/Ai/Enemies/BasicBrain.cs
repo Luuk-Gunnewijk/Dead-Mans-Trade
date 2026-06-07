@@ -1,24 +1,48 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BasicBrain : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float moveSpeed;
+
+    [Header("Wander")]
+    [SerializeField] private float wanderRadius;
+    [SerializeField] private float pointReachedDistance;
+
+    private Vector2 _targetPosition;
+
+    private void Start()
+    {
+        PickNewRandomPoint();
+    }
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 5f, Vector2.zero, 10f);
+        MoveToTarget();
+
+        if (Vector2.Distance(transform.position, _targetPosition) < pointReachedDistance)
+        {
+            PickNewRandomPoint();
+        }
+    }
+
+    private void PickNewRandomPoint()
+    {
+        Vector2 randomDirection = Random.insideUnitCircle * wanderRadius;
+        _targetPosition = (Vector2)transform.position + randomDirection;
+    }
+
+    private void MoveToTarget()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, _targetPosition, moveSpeed * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, wanderRadius);
 
-        Vector3 start = transform.position;
-        Vector3 end = transform.position + Vector3.zero * 10f;
-
-        Gizmos.DrawWireSphere(start, 5f);
-        Gizmos.DrawWireSphere(end, 5f);
-        Gizmos.DrawLine(start, end);
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(_targetPosition, 0.2f);
     }
 }

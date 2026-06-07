@@ -11,17 +11,18 @@ public class BasicMovementNB : MonoBehaviour
     [SerializeField] private float rotationSpeed;
 
     private Rigidbody2D _rigidBody2D;
+    private Dash _dash;
     private float _targetRotation;
 
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _targetRotation = _rigidBody2D.rotation;
+        _dash = GetComponent<Dash>();
     }
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, transform.up * 3, Color.red);
         RotateInputNB();
     }
 
@@ -33,6 +34,8 @@ public class BasicMovementNB : MonoBehaviour
 
     private void PlayerMovementNB()
     {
+        if (_dash != null && _dash.IsDashing) return;
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             _rigidBody2D.AddForce(transform.up * acceleration);

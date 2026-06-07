@@ -477,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &832330345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ Transform:
   m_GameObject: {fileID: 832330344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.78, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -578,7 +578,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -624,7 +624,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6c94cb0d824eb4989d2ee60ffebc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 1.2
+  wanderRadius: 5
+  pointReachedDistance: 0.2
 --- !u!1 &942375918
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cde458a547d8a46a641a1dac33511d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 2
+  acceleration: 1.2
   backwardsSpeed: 1
   decelerationSpeed: 5
   rotationSpeed: 180
@@ -1000,6 +1002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannon: {fileID: 5382808724595520759, guid: d376c29242a4b494d826faa89dd5c4c4, type: 3}
+  cannonTimeL: 3
+  cannonTimeR: 3
   firePointR: {fileID: 1227452732}
   firePointL: {fileID: 1903088043}
 --- !u!114 &1431744821
@@ -1295,7 +1299,7 @@ Transform:
   m_GameObject: {fileID: 1868953746}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_LocalPosition: {x: 0, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

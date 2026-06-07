@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Dash : MonoBehaviour
 {
+    public bool IsDashing { get; private set; }
+
     [Header("Dash Speed")]
     [SerializeField] private float DashSpeed;
     [SerializeField] private float decelerationSpeed;
@@ -39,11 +40,14 @@ public class Dash : MonoBehaviour
     private IEnumerator DashRoutine()
     {
         _canDash = false;
+        IsDashing = true;
         dashTrail.emitting = true;
         _myRigidBody2D.linearVelocity = Vector2.zero;
         _myRigidBody2D.AddForce(transform.up * DashSpeed, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         dashTrail.emitting = false;
+        _myRigidBody2D.linearVelocity = Vector2.zero;
+        IsDashing = false;
         yield return new WaitForSeconds(DashCooldownTime);
         _canDash = true;
     }
