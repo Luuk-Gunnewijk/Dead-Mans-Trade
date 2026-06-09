@@ -6,15 +6,18 @@ public class AIMovementNB : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
 
-    [Header("ShootPOS && Player")]
-    [SerializeField] private Transform[] inShootPOS;
-    [SerializeField] private Transform player;
+    [Header("EnemyPOS")]
+    [SerializeField] private Transform[] inEnemyPOS;
 
+    private float _minROTTime = 0.2f;
+    private float _maxROTTime = 2f;
+
+    private Transform player;
     private Vector2 _inSightPOS;
 
     void Start()
     {
-
+        player = PlayerNB.Instance.transform; 
     }
 
     void Update()
@@ -34,13 +37,13 @@ public class AIMovementNB : MonoBehaviour
         Transform closestShootPos = null;
         float closestDistance = Mathf.Infinity;
 
-        for (int i = 0; i < inShootPOS.Length; i++)
+        for (int i = 0; i < inEnemyPOS.Length; i++)
         {
-            float dist = Vector2.Distance(inShootPOS[i].position, transform.position);
+            float dist = Vector2.Distance(inEnemyPOS[i].position, transform.position);
             if (dist < closestDistance)
             {
                 closestDistance = dist;
-                closestShootPos = inShootPOS[i];
+                closestShootPos = inEnemyPOS[i];
             }
         }
         if (closestShootPos == null) return;
@@ -58,7 +61,8 @@ public class AIMovementNB : MonoBehaviour
 
     private IEnumerator RotateAIRoutine()
     {
-        yield return new WaitForSeconds(.2f);
+        float randomTime = Random.Range(_minROTTime, _maxROTTime);
+        yield return new WaitForSeconds(randomTime);
         transform.rotation = player.rotation;
     }
 }
